@@ -1,0 +1,386 @@
+<xaiArtifact artifact_id="40b3f3b6-0394-40c1-8979-a2ecdfade527" artifact_version_id="8cb940a2-74f0-474d-ab3e-05e5e95b1ea7" title="index.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<meta charset="UTF-8">
+<title>Java-Code 20 Fragen – Achtung, bissiger Fragenkatalog (41 Fragen):
+Für etwaige Aggressionsausbrüche beim Bearbeiten dieser Fragen übernehme ich keine Verantwortung.</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f9f9f9; }
+.quiz-container { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px #ccc; }
+.question { margin-bottom: 18px; font-weight: bold; }
+.options { margin-bottom: 24px; }
+.option { display: block; margin: 6px 0; padding: 8px 12px; border-radius: 5px; cursor: pointer; border: 1px solid #ddd; background: #f5f5f5; transition: background 0.2s; }
+.option.selected { background: #e0eaff; border-color: #7dafff; }
+.option.correct { background: #c8f7c5 !important; border-color: #3bb143 !important; color: #1a4d1a; }
+.option.incorrect { background: #f7c5c5 !important; border-color: #b13b3b !important; color: #4d1a1a; }
+#next-btn, #restart-btn, #show-answer { margin-top: 10px; margin-right: 10px; padding: 6px 16px; background: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+#show-answer { background: #28a745; }
+#show-answer:disabled, #next-btn:disabled { background: #ccc; cursor: not-allowed; }
+#score { margin-top: 20px; font-size: 18px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="quiz-container">
+  <h1>Java-Code 20 Fragen, die Ihr Stresslevel testen:<br>⚠️ ACHTUNG! ⚠️<br>
+<h3 style="font-style: italic;color: #28a745;">Sollten Sie nach diesen Fragen das Bedürfnis verspüren, Ihr Gerät zu schreddern – bitte vorher speichern. Für emotionale Schäden wird keine Verantwortung übernommen!</h3></h1>
+  <div id="quiz"></div>
+  <div id="score"></div>
+  <button id="show-answer" aria-label="Antwort anzeigen">Antwort anzeigen</button>
+  <button id="next-btn" aria-label="Nächste Frage">Nächste Frage</button>
+  <button id="restart-btn" style="display: none;" aria-label="Quiz neustarten">Quiz neustarten</button>
+</div>
+<script>
+const questions = 
+
+
+[
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{1,2},{3,4}};\nSystem.out.println(arr[1][1]);\n```",
+ "options": ["4", "2", "1", "3"],
+ "correct": [0],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{5,6,7},{8,9,10}};\nSystem.out.print(arr[0][2] + arr[1][0]);\n```",
+ "options": ["13", "17", "78", "15"],
+ "correct": [3],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = new int[2][2];\narr[0][0] = 1; arr[1][1] = 2;\nSystem.out.print(arr[1][0]);\n```",
+ "options": ["1", "2", "3", "0"],
+ "correct": [3],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{0,1},{2,3}};\nSystem.out.print(arr[0][1] * arr[1][0]);\n```",
+ "options": ["1", "0", "3", "2"],
+ "correct": [3],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{1,2,3},{4,5,6}};\nint sum = 0;\nfor(int i=0;i<2;i++) for(int j=0;j<3;j++) sum+=arr[i][j];\nSystem.out.print(sum);\n```",
+ "options": ["12", "21", "15", "18"],
+ "correct": [1],
+ "penalty": true
+ },
+ {
+ "question": "Was ist der Wert von arr[1][0]?\n```java\nint[][] arr = {{7,8},{9,10}};\narr[1][0] = arr[0][1];\nSystem.out.print(arr[1][0]);\n```",
+ "options": ["7", "9", "8", "10"],
+ "correct": [2],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4},{6,8}};\nSystem.out.print(arr[0][1] + arr[1][0]);\n```",
+ "options": ["10", "12", "6", "8"],
+ "correct": [0],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,2,3},{4,5,6}};\nSystem.out.print(arr[1][arr[0][0]+1]);\n```",
+ "options": ["6", "3", "5", "1"],
+ "correct": [0],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4,6},{8,10,12}};\nSystem.out.print(arr[0][0] + arr[1][2]);\n```",
+ "options": ["18", "212", "16", "14"],
+ "correct": [3],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,2},{3,4}};\nSystem.out.print(arr[1][0] * arr[0][1]);\n```",
+ "options": ["0", "8", "6", "3"],
+ "correct": [2],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{5,6},{7,8}};\nSystem.out.print(arr.length);\n```",
+ "options": ["4", "2", "1", "0"],
+ "correct": [1],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,2,3},{4,5,6}};\nSystem.out.print(arr[1][0] + arr[0][2]);\n```",
+ "options": ["5", "7", "6", "8"],
+ "correct": [1],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4},{6,8}};\nSystem.out.print(arr[0][1] * arr[1][1]);\n```",
+ "options": ["16", "32", "8", "24"],
+ "correct": [1],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,3},{5,7}};\nSystem.out.print(arr[1][1] - arr[0][0]);\n```",
+ "options": ["2", "7", "6", "3"],
+ "correct": [2],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4},{6,8}};\nSystem.out.print(arr[0][1] + arr[1][1]);\n```",
+ "options": ["10", "12", "48", "6"],
+ "correct": [1],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,2,3},{4,5,6}};\nSystem.out.print(arr[1][2] - arr[0][0]);\n```",
+ "options": ["3", "6", "5", "2"],
+ "correct": [2],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4},{6,8}};\nSystem.out.print(arr[1][0] / arr[0][0]);\n```",
+ "options": ["1", "2", "3", "6"],
+ "correct": [2],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,1},{1,1}};\nint sum = 0;\nfor(int i=0;i<2;i++) for(int j=0;j<2;j++) sum+=arr[i][j];\nSystem.out.print(sum);\n```",
+ "options": ["4", "3", "2", "1"],
+ "correct": [0],
+ "penalty": true
+ },
+ {
+ "question": "Was gibt folgender Code aus?\n```java\nint[][] arr = {{2,4,6},{8,10,12}};\nSystem.out.print(arr[1][1] - arr[0][1]);\n```",
+ "options": ["4", "2", "8", "6"],
+ "correct": [3],
+ "penalty": true
+ },
+ {
+ "question": "Was ist die Ausgabe?\n```java\nint[][] arr = {{1,2,3},{4,5,6}};\nSystem.out.print(arr[0][2] * arr[1][0]);\n```",
+ "options": ["12", "18", "15", "24"],
+ "correct": [0],
+ "penalty": true
+ }
+]
+
+
+
+
+
+;
+
+let currentQuestion = 0;
+let selectedOptions = [];
+let score = 0;
+let answerShown = false;
+let shuffledQuestions = [];
+
+
+// Markdown-Codeblock in HTML umwandeln
+    function markdownToHtml(text) {
+      return text.replace(/```java([\s\S]*?)```/g, '<pre><code class="language-java">$1</code></pre>');
+    }
+
+function shuffleArray(array) {
+  const shuffled = [...array];
+ for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  } 
+  return shuffled;
+}
+
+function initializeQuiz() {
+  shuffledQuestions = shuffleArray(questions);
+  currentQuestion = 0;
+  score = 0;
+  answerShown = false;
+  document.getElementById('show-answer').style.display = "inline-block";
+  document.getElementById('next-btn').style.display = "inline-block";
+  document.getElementById('restart-btn').style.display = "none";
+  renderQuestion();
+}
+
+function getGrade(score) {
+  // Da Punktabzüge möglich sind, könnte der Score negativ werden
+  const percentage = Math.max(0, Math.round((score / questions.length) * 100));
+  if (percentage >= 100) return 1.0;
+  if (percentage >= 98) return 1.1;
+  if (percentage >= 96) return 1.2;
+  if (percentage >= 94) return 1.3;
+  if (percentage >= 92) return 1.4;
+  if (percentage >= 91) return 1.5;
+  if (percentage >= 90) return 1.6;
+  if (percentage >= 89) return 1.7;
+  if (percentage >= 88) return 1.8;
+  if (percentage >= 87) return 1.9;
+  if (percentage >= 85) return 2.0;
+  if (percentage >= 84) return 2.1;
+  if (percentage >= 83) return 2.2;
+  if (percentage >= 82) return 2.3;
+  if (percentage >= 81) return 2.4;
+  if (percentage >= 79) return 2.5;
+  if (percentage >= 78) return 2.6;
+  if (percentage >= 77) return 2.7;
+  if (percentage >= 75) return 2.8;
+  if (percentage >= 74) return 2.9;
+  if (percentage >= 72) return 3.0;
+  if (percentage >= 71) return 3.1;
+  if (percentage >= 70) return 3.2;
+  if (percentage >= 68) return 3.3;
+  if (percentage >= 67) return 3.4;
+  if (percentage >= 65) return 3.5;
+  if (percentage >= 63) return 3.6;
+  if (percentage >= 62) return 3.7;
+  if (percentage >= 60) return 3.8;
+  if (percentage >= 58) return 3.9;
+  if (percentage >= 56) return 4.0;
+  if (percentage >= 55) return 4.1;
+  if (percentage >= 53) return 4.2;
+  if (percentage >= 51) return 4.3;
+  if (percentage >= 50) return 4.4;
+  if (percentage >= 48) return 4.5;
+  if (percentage >= 46) return 4.6;
+  if (percentage >= 44) return 4.7;
+  if (percentage >= 42) return 4.8;
+  if (percentage >= 40) return 4.9;
+  if (percentage >= 38) return 5.0;
+  if (percentage >= 36) return 5.1;
+  if (percentage >= 34) return 5.2;
+  if (percentage >= 32) return 5.3;
+  if (percentage >= 30) return 5.4;
+  if (percentage >= 25) return 5.5;
+  if (percentage >= 20) return 5.6;
+  if (percentage >= 15) return 5.7;
+  if (percentage >= 10) return 5.8;
+  if (percentage >= 5) return 5.9;
+  return 6.0;
+}
+
+function renderQuestion() {
+  const q = shuffledQuestions[currentQuestion];
+  let html = `<div class="question">${currentQuestion + 1}. ${q.question.replace(/\n/g, '<br>')}</div><div class="options">`;
+  const inputType = q.correct.length === 1 ? 'radio' : 'checkbox';
+  if (q.options && q.options.length > 0) {
+    q.options.forEach((opt, i) => {
+      html += `<label class="option"><input type="${inputType}" name="option" value="${i}" onchange="updateSelection(${i})"> ${opt}</label>`;
+    });
+  } else {
+    html += `<em>(Bitte die Antwort im Kopf überlegen oder auf Papier notieren.)</em>`;
+  }
+  html += `</div>`;
+  document.getElementById('quiz').innerHTML = html;
+  document.getElementById('score').innerHTML = `Punktzahl: ${score.toFixed(2)} / ${questions.length}`;
+  selectedOptions = [];
+  answerShown = false;
+  document.getElementById('show-answer').disabled = false;
+  document.getElementById('next-btn').disabled = true;
+  document.getElementById('restart-btn').style.display = "none";
+}
+
+function renderQuestion() {
+    const q = shuffledQuestions[currentQuestion];
+    // Frage mit Markdown-zu-HTML-Umwandlung
+    let html = `<div class="question">${currentQuestion + 1}. ${markdownToHtml(q.question)}</div>`;
+    if (q.penalty === true) {
+        html += `<div class="warning">Hinweis: <span style="color: #b20000;">Punktabzug bei Falscheingabe!</span></div>`;
+    }
+    html += `<div class="options">`;
+    const inputType = q.correct.length === 1 ? 'radio' : 'checkbox';
+    if (q.options && q.options.length > 0) {
+        q.options.forEach((opt, i) => {
+            html += `<label class="option"><input type="${inputType}" name="option" value="${i}" onchange="updateSelection(${i})"> ${opt.replace(/\n/g, '<br>')}</label>`;
+        });
+    } else {
+        html += `<em>(Bitte die Antwort im Kopf überlegen oder auf Papier notieren.)</em>`;
+    }
+    html += `</div>`;
+    document.getElementById('quiz').innerHTML = html;
+    document.getElementById('score').innerHTML = `Punktzahl: ${score.toFixed(2)} / ${questions.length}`;
+    selectedOptions = [];
+    answerShown = false;
+    document.getElementById('show-answer').disabled = false;
+    document.getElementById('next-btn').disabled = true;
+    document.getElementById('restart-btn').style.display = "none";
+    // Wichtig: Highlighting nach dem Einfügen
+    hljs.highlightAll();
+}
+function updateSelection(index) {
+  const q = shuffledQuestions[currentQuestion];
+  if (q.correct.length === 1) {
+    selectedOptions = [index];
+  } else {
+    if (selectedOptions.includes(index)) {
+      selectedOptions = selectedOptions.filter(i => i !== index);
+    } else {
+      selectedOptions.push(index);
+    }
+  }
+  document.getElementById('next-btn').disabled = selectedOptions.length === 0;
+}
+
+function showAnswer() {
+  if (answerShown) return;
+  answerShown = true;
+  const q = shuffledQuestions[currentQuestion];
+  const options = document.querySelectorAll('input[name="option"]');
+  let isCorrect = selectedOptions.length === q.correct.length && selectedOptions.every(i => q.correct.includes(i));
+  
+  if (isCorrect) {
+    score += 1;
+  } else if (q.correct.length > 1 && q.penalty) {
+    // Punktabzug für falsche Auswahlen und vergessene korrekte Antworten nur wenn penalize: true
+    let incorrectSelections = selectedOptions.filter(i => !q.correct.includes(i));
+    let missedCorrect = q.correct.filter(i => !selectedOptions.includes(i));
+    score -= (incorrectSelections.length + missedCorrect.length) * 0.25;
+  }
+  
+  options.forEach((opt, i) => {
+    const label = opt.parentElement;
+    if (q.correct.includes(i)) {
+      label.classList.add('correct');
+    } else if (opt.checked) {
+      label.classList.add('incorrect');
+    }
+    opt.disabled = true;
+  });
+  
+  document.getElementById('score').innerHTML = `Punktzahl: ${score.toFixed(2)} / ${questions.length}`;
+  document.getElementById('show-answer').disabled = true;
+  document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+  if (currentQuestion < shuffledQuestions.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    const percentage = Math.max(0, Math.round((score / questions.length) * 100));
+    const grade = getGrade(score);
+    document.getElementById('quiz').innerHTML = `<b>Quiz beendet! Vielen Dank fürs Mitmachen.</b><br>Deine Punktzahl: ${score.toFixed(1)} von ${questions.length} (${percentage}%)<br>Deine Note: ${grade}<br>Zu Risiken und Nebenwirkungen lesen Sie den Code und fragen Sie Ihren Arzt oder Apotheker`;
+    document.getElementById('show-answer').style.display = "none";
+    document.getElementById('next-btn').style.display = "none";
+    document.getElementById('restart-btn').style.display = "inline-block";
+    document.getElementById('score').innerHTML = "";
+  }
+}
+
+function restartQuiz() {
+  initializeQuiz();
+}
+
+initializeQuiz();
+
+document.getElementById('show-answer').onclick = showAnswer;
+document.getElementById('next-btn').onclick = nextQuestion;
+document.getElementById('restart-btn').onclick = restartQuiz;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

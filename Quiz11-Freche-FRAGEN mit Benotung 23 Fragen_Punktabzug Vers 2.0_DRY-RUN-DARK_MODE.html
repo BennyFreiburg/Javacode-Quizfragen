@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java 2D Array Quiz – 23 Fragen mit Lösungen</title>
+    <style>
+
+ 
+  body {
+ font-family: Arial, sans-serif;
+ margin: 20px;
+ background: #181a1b;
+ color: #e0e0e0;
+ line-height: 1.6;
+}
+h1 {
+ text-align: center;
+ color: #d1d5db;
+}
+details {
+ margin: 15px 0;
+ border: 1px solid #333;
+ border-radius: 8px;
+ padding: 12px;
+ background: #222426;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+summary {
+ cursor: pointer;
+ font-weight: bold;
+ color: #4fc3f7;
+ font-size: 1.1em;
+}
+summary:hover {
+ color: #81d4fa;
+}
+pre {
+ background: #23272a;
+ padding: 12px;
+ border-radius: 5px;
+ overflow-x: auto;
+ font-size: 0.95em;
+ white-space: pre-wrap;
+}
+.output {
+ font-weight: bold;
+ color: #81c784;
+}
+.index {
+ color: #e57373;
+ font-weight: bold;
+}
+table {
+ border-collapse: collapse;
+ width: 100%;
+ margin-top: 10px;
+ font-size: 0.9em;
+}
+th, td {
+ border: 1px solid #444;
+ padding: 6px;
+ text-align: center;
+}
+th {
+ background: #23272a;
+}
+hr {
+ margin: 30px 0;
+ border: 0;
+ border-top: 1px solid #444;
+}
+
+</style>
+</head>
+<body>
+  <h1>Java 2D Array Quiz – 23 Fragen mit vollständigen Lösungen</h1>
+  <p><strong>Klicke auf eine Frage → Dry-Run + Lösung erscheint</strong></p>
+
+  <!-- Frage 0 -->
+  <details>
+    <summary>Frage 0: <code>int[][] arr = {{1,2,3},{4,5,6}}; int sum = 0; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { sum += arr[i][j]; } } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}, sum=0
+
+i=0, j=0: sum += arr[0][0] = 0 + 1 = 1
+i=0, j=1: sum += arr[0][1] = 1 + 2 = 3
+i=0, j=2: sum += arr[0][2] = 3 + 3 = 6
+i=1, j=0: sum += arr[1][0] = 6 + 4 = 10
+i=1, j=1: sum += arr[1][1] = 10 + 5 = 15
+i=1, j=2: sum += arr[1][2] = 15 + 6 = 21
+Print: 21
+
+<span class="output">Output: 21</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 1 -->
+  <details>
+    <summary>Frage 1: <code>int[][] arr = {{1,2},{3,4}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.length; j++) { System.out.print(arr[i][j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4}}
+
+<span class="warning">Hinweis: Die innere Schleife verwendet arr.length (2) statt arr[0].length (2). Dies funktioniert hier, da arr quadratisch ist, ist aber unsicher, da arr[i].length variieren kann.</span>
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[0][1] = 2
+i=1, j=0: print arr[1][0] = 3
+i=1, j=1: print arr[1][1] = 4
+Print: 1234
+
+<span class="output">Output: 1234</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 2 -->
+  <details>
+    <summary>Frage 2: <code>int[][] arr = {{2,4},{6,8}}; int i=0, j=0, sum=0; while(i&ltarr.length) { j=0; while(j&ltarr[0].length) { sum += arr[i][j]; j++; } i++; } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{2,4},{6,8}}, sum=0
+
+i=0, j=0: sum += arr[0][0] = 0 + 2 = 2
+i=0, j=1: sum += arr[0][1] = 2 + 4 = 6
+i=1, j=0: sum += arr[1][0] = 6 + 6 = 12
+i=1, j=1: sum += arr[1][1] = 12 + 8 = 20
+Print: 20
+
+<span class="output">Output: 20</span>
+<span class="index">Richtiger Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 3 -->
+  <details>
+    <summary>Frage 3: <code>int[][] arr = {{1,2},{3,4}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { System.out.print(arr[j][i]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4}}
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[1][0] = 3
+i=1, j=0: print arr[0][1] = 2
+i=1, j=1: print arr[1][1] = 4
+Print: 1324
+
+<span class="output">Output: 1324</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 4 -->
+  <details>
+    <summary>Frage 4: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { if(arr[i][j] % 2 == 0) { System.out.print(arr[i][j]); } } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: arr[0][0]=1, 1%2=1 → skip
+i=0, j=1: arr[0][1]=2, 2%2=0 → print 2
+i=0, j=2: arr[0][2]=3, 3%2=1 → skip
+i=1, j=0: arr[1][0]=4, 4%2=0 → print 4
+i=1, j=1: arr[1][1]=5, 5%2=1 → skip
+i=1, j=2: arr[1][2]=6, 6%2=0 → print 6
+Print: 246
+
+<span class="output">Output: 246</span>
+<span class="index">Richtiger Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 5 -->
+  <details>
+    <summary>Frage 5: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.length; j++) { System.out.print(arr[i][j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+<span class="warning">Hinweis: Die innere Schleife verwendet arr.length (2) statt arr[0].length (3). Dies führt dazu, dass nur die ersten zwei Spalten ausgegeben werden (arr[i][0], arr[i][1]). Für nicht-quadratische Arrays kann dies unvollständige Ergebnisse oder Fehler verursachen.</span>
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[0][1] = 2
+i=1, j=0: print arr[1][0] = 4
+i=1, j=1: print arr[1][1] = 5
+Print: 1245
+
+<span class="output">Output: 1245</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 6 -->
+  <details>
+    <summary>Frage 6: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { if(i == j) { System.out.print(arr[i][j]); } } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: i==j → print arr[0][0] = 1
+i=0, j=1: i!=j → skip
+i=0, j=2: i!=j → skip
+i=1, j=0: i!=j → skip
+i=1, j=1: i==j → print arr[1][1] = 5
+i=1, j=2: i!=j → skip
+Print: 15
+
+<span class="output">Output: 15</span>
+<span class="index">Richtiger Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 7 -->
+  <details>
+    <summary>Frage 7: <code>int[][] arr = {{2,4},{6,8}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { System.out.print(arr[i][j] * arr[j][i]); } }</code></summary>
+    <pre>
+Initial: arr={{2,4},{6,8}}
+
+i=0, j=0: arr[0][0]*arr[0][0] = 2*2 = 4 → print 4
+i=0, j=1: arr[0][1]*arr[1][0] = 4*6 = 24 → print 24
+i=1, j=0: arr[1][0]*arr[0][1] = 6*4 = 24 → print 24
+i=1, j=1: arr[1][1]*arr[1][1] = 8*8 = 64 → print 64
+Print: 4242464
+
+<span class="output">Output: 4242464</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 8 -->
+  <details>
+    <summary>Frage 8: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[1].length; j++) { System.out.print(arr[i][j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[0][1] = 2
+i=0, j=2: print arr[0][2] = 3
+i=1, j=0: print arr[1][0] = 4
+i=1, j=1: print arr[1][1] = 5
+i=1, j=2: print arr[1][2] = 6
+Print: 123456
+
+<span class="output">Output: 123456</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 9 -->
+  <details>
+    <summary>Frage 9: <code>int[][] arr = {{1,2},{3,4}}; int sum = 0; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { sum += arr[i][j]; } } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4}}, sum=0
+
+i=0, j=0: sum += arr[0][0] = 0 + 1 = 1
+i=0, j=1: sum += arr[0][1] = 1 + 2 = 3
+i=1, j=0: sum += arr[1][0] = 3 + 3 = 6
+i=1, j=1: sum += arr[1][1] = 6 + 4 = 10
+Print: 10
+
+<span class="output">Output: 10</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 10 -->
+  <details>
+    <summary>Frage 10: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.length; j++) { System.out.print(arr[j][i]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+<span class="warning">Hinweis: Die innere Schleife verwendet arr.length (2) statt arr[0].length (3). Dies führt dazu, dass nur die ersten zwei Spalten transponiert ausgegeben werden (arr[j][0], arr[j][1]). Für nicht-quadratische Arrays kann dies unvollständige Ergebnisse oder Fehler verursachen.</span>
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[1][0] = 4
+i=1, j=0: print arr[0][1] = 2
+i=1, j=1: print arr[1][1] = 5
+Print: 1425
+
+<span class="output">Output: 1425</span>
+<span class="index">Richtiger Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 11 -->
+  <details>
+    <summary>Frage 11: <code>int[][] arr = {{1,2},{3,4}}; int i=0, sum=0; while(i&ltarr.length) { int j=0; while(j&ltarr[0].length) { sum += arr[i][j]; j++; } i++; } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4}}, sum=0
+
+i=0, j=0: sum += arr[0][0] = 0 + 1 = 1
+i=0, j=1: sum += arr[0][1] = 1 + 2 = 3
+i=1, j=0: sum += arr[1][0] = 3 + 3 = 6
+i=1, j=1: sum += arr[1][1] = 6 + 4 = 10
+Print: 10
+
+<span class="output">Output: 10</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 12 -->
+  <details>
+    <summary>Frage 12: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { arr[i][j] = i + j; } } System.out.print(arr[1][2]);</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: arr[0][0] = 0 + 0 = 0
+i=0, j=1: arr[0][1] = 0 + 1 = 1
+i=0, j=2: arr[0][2] = 0 + 2 = 2
+i=1, j=0: arr[1][0] = 1 + 0 = 1
+i=1, j=1: arr[1][1] = 1 + 1 = 2
+i=1, j=2: arr[1][2] = 1 + 2 = 3
+Print: arr[1][2] = 3
+
+<span class="output">Output: 3</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 13 -->
+  <details>
+    <summary>Frage 13: <code>int[][] arr = {{1,2},{3,4},{5,6}}; System.out.print(arr[0].length);</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4},{5,6}}
+arr[0].length = 2 (length of first row)
+Print: 2
+
+<span class="output">Output: 2</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 14 -->
+  <details>
+    <summary>Frage 14: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { System.out.print(arr[i][2-j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: print arr[0][2-0] = arr[0][2] = 3
+i=0, j=1: print arr[0][2-1] = arr[0][1] = 2
+i=0, j=2: print arr[0][2-2] = arr[0][0] = 1
+i=1, j=0: print arr[1][2-0] = arr[1][2] = 6
+i=1, j=1: print arr[1][2-1] = arr[1][1] = 5
+i=1, j=2: print arr[1][2-2] = arr[1][0] = 4
+Print: 321654
+
+<span class="output">Output: 321654</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 15 -->
+  <details>
+    <summary>Frage 15: <code>int[][] arr = {{1,2},{3,4}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { if(arr[i][j] % 2 == 0) { System.out.print(arr[i][j]); } } }</code></summary>
+    <pre>
+Initial: arr={{1,2},{3,4}}
+
+i=0, j=0: arr[0][0]=1, 1%2=1 → skip
+i=0, j=1: arr[0][1]=2, 2%2=0 → print 2
+i=1, j=0: arr[1][0]=3, 3%2=1 → skip
+i=1, j=1: arr[1][1]=4, 4%2=0 → print 4
+Print: 24
+
+<span class="output">Output: 24</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 16 -->
+  <details>
+    <summary>Frage 16: <code>int[][] arr = {{1,3,5},{2,4,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.length; j++) { System.out.print(arr[i][j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,3,5},{2,4,6}}
+
+<span class="warning">Hinweis: Die innere Schleife verwendet arr.length (2) statt arr[0].length (3). Dies führt dazu, dass nur die ersten zwei Spalten ausgegeben werden (arr[i][0], arr[i][1]). Für nicht-quadratische Arrays kann dies unvollständige Ergebnisse oder Fehler verursachen.</span>
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[0][1] = 3
+i=1, j=0: print arr[1][0] = 2
+i=1, j=1: print arr[1][1] = 4
+Print: 1324
+
+<span class="output">Output: 1324</span>
+<span class="index">Richtiger Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 17 -->
+  <details>
+    <summary>Frage 17: <code>int[][] arr = {{1,2,3},{4,5,6}}; int sum = 0; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr[0].length; j++) { sum += arr[i][j]; } } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}, sum=0
+
+i=0, j=0: sum += arr[0][0] = 0 + 1 = 1
+i=0, j=1: sum += arr[0][1] = 1 + 2 = 3
+i=0, j=2: sum += arr[0][2] = 3 + 3 = 6
+i=1, j=0: sum += arr[1][0] = 6 + 4 = 10
+i=1, j=1: sum += arr[1][1] = 10 + 5 = 15
+i=1, j=2: sum += arr[1][2] = 15 + 6 = 21
+Print: 21
+
+<span class="output">Output: 21</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 18 -->
+  <details>
+    <summary>Frage 18: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.leght; j++) { System.out.print(arr[i][j]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+Fehler: "arr.leght" ist ein Tippfehler (korrekt: arr.length).
+Ergebnis: Compiler Fehler
+
+<span class="output">Output: Compiler Fehler</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 19 -->
+  <details>
+    <summary>Frage 19: <code>int[][] arr = {{1,2,3},{4,5,6}}; int i=0, sum=1; while(i&ltarr.length) { int j=0; while(j&ltarr[0].length) { sum *= arr[i][j]; j++; } i++; } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}, sum=1
+
+i=0, j=0: sum *= arr[0][0] = 1 * 1 = 1
+i=0, j=1: sum *= arr[0][1] = 1 * 2 = 2
+i=0, j=2: sum *= arr[0][2] = 2 * 3 = 6
+i=1, j=0: sum *= arr[1][0] = 6 * 4 = 24
+i=1, j=1: sum *= arr[1][1] = 24 * 5 = 120
+i=1, j=2: sum *= arr[1][2] = 120 * 6 = 720
+Print: 720
+
+<span class="output">Output: 720</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 20 -->
+  <details>
+    <summary>Frage 20: <code>int[][] arr = {{1,2,3},{4,5,6}}; for(int i=0; i&ltarr[0].length; i++) { for(int j=0; j&ltarr.length; j++) { System.out.print(arr[j][i]); } }</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6}}
+
+i=0, j=0: print arr[0][0] = 1
+i=0, j=1: print arr[1][0] = 4
+i=1, j=0: print arr[0][1] = 2
+i=1, j=1: print arr[1][1] = 5
+i=2, j=0: print arr[0][2] = 3
+i=2, j=1: print arr[1][2] = 6
+Print: 142536
+
+<span class="output">Output: 142536</span>
+<span class="index">Richtiger Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 21 -->
+  <details>
+    <summary>Frage 21: <code>int[][] arr = {{1,0,3},{4,5,6}}; int sum = 0; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&lt_tabs>arr[0].length; j++) { sum += 10 / arr[i][j]; } } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,0,3},{4,5,6}}, sum=0
+
+i=0, j=0: sum += 10/arr[0][0] = 10/1 = 10 → sum = 10
+i=0, j=1: sum += 10/arr[0][1] = 10/0 → ArithmeticException (Division durch Null)
+Programm stoppt.
+
+<span class="output">Output: ArithmeticException</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 22 -->
+  <details>
+    <summary>Frage 22: <code>int[][] arr = {{1,2,3},{4,5,6},{6}}; int sum = 0; for(int i=0; i&ltarr.length; i++) { for(int j=0; j&ltarr.length; j++) { sum += arr[i][j]; } } System.out.print(sum);</code></summary>
+    <pre>
+Initial: arr={{1,2,3},{4,5,6},{6}}, sum=0
+
+<span class="warning">Hinweis: Die innere Schleife verwendet arr.length (3) statt arr[i].length. Da arr[2].length = 1 ist, führt j=1,2 bei i=2 zu einem ArrayIndexOutOfBoundsException.</span>
+
+i=0, j=0: sum += arr[0][0] = 0 + 1 = 1
+i=0, j=1: sum += arr[0][1] = 1 + 2 = 3
+i=0, j=2: sum += arr[0][2] = 3 + 3 = 6
+i=1, j=0: sum += arr[1][0] = 6 + 4 = 10
+i=1, j=1: sum += arr[1][1] = 10 + 5 = 15
+i=1, j=2: sum += arr[1][2] = 15 + 6 = 21
+i=2, j=0: sum += arr[2][0] = 21 + 6 = 27
+i=2, j=1: arr[2][1] → ArrayIndexOutOfBoundsException (arr[2] hat nur ein Element)
+Programm stoppt.
+
+<span class="output">Output: ArrayIndexOutOfBoundsException</span>
+<span class="index">Richtiger Index: 2</span>
+    </pre>
+  </details>
+
+  <hr>
+  <p><strong>Lern-Tipp:</strong> Suche mit <kbd>Strg + F</kbd> nach <code>arr[i][j]</code>, <code>length</code>, <code>sum</code>! Achte auf die Verwendung von <code>arr.length</code> vs. <code>arr[i].length</code> in Schleifen.</p>
+</body>
+</html>

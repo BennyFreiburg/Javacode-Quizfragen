@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Quiz – 30 Fragen mit Lösungen</title>
+  <style>
+
+ 
+  body {
+ font-family: Arial, sans-serif;
+ margin: 20px;
+ background: #181a1b;
+ color: #e0e0e0;
+ line-height: 1.6;
+}
+h1 {
+ text-align: center;
+ color: #d1d5db;
+}
+details {
+ margin: 15px 0;
+ border: 1px solid #333;
+ border-radius: 8px;
+ padding: 12px;
+ background: #222426;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+summary {
+ cursor: pointer;
+ font-weight: bold;
+ color: #4fc3f7;
+ font-size: 1.1em;
+}
+summary:hover {
+ color: #81d4fa;
+}
+pre {
+ background: #23272a;
+ padding: 12px;
+ border-radius: 5px;
+ overflow-x: auto;
+ font-size: 0.95em;
+ white-space: pre-wrap;
+}
+.output {
+ font-weight: bold;
+ color: #81c784;
+}
+.index {
+ color: #e57373;
+ font-weight: bold;
+}
+table {
+ border-collapse: collapse;
+ width: 100%;
+ margin-top: 10px;
+ font-size: 0.9em;
+}
+th, td {
+ border: 1px solid #444;
+ padding: 6px;
+ text-align: center;
+}
+th {
+ background: #23272a;
+}
+hr {
+ margin: 30px 0;
+ border: 0;
+ border-top: 1px solid #444;
+}
+
+</style>
+</head>
+<body>
+  <h1>Java Quiz – 30 Fragen mit vollständigen Lösungen</h1>
+  <p><strong>Klicke auf eine Frage → Dry-Run + Lösung erscheint</strong></p>
+
+  <!-- Frage 0 -->
+  <details>
+    <summary>Frage 0: <code>int x = 7; for (int i = 1; i <= 3; i++) { x -= i++ / 2; System.out.print(x); }</code></summary>
+    <pre>
+Initial: x=7, i=1
+
+1. Durchlauf:
+  i = 1 → i++ → nutzt 1 → i=2
+  1 / 2 = 0
+  x = 7 - 0 = 7 → print 7
+  For-Kopf: i++ → i=3
+
+2. Durchlauf:
+  i = 3 → i++ → nutzt 3 → i=4
+  3 / 2 = 1
+  x = 7 - 1 = 6 → print 6
+  For-Kopf: i++ → i=5 → i<=3 falsch → Ende
+
+<span class="output">Output: 76</span>
+<span class="index">Richtiger Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 1 -->
+  <details>
+    <summary>Frage 1: <code>int x = 3; while (x++ <= 5) { System.out.print(x / 2); }</code></summary>
+    <pre>
+x=3 → x++=3 → x=4 → 3<=5 → print 4/2 = 2
+x=4 → x++=4 → x=5 → 4<=5 → print 5/2 = 2
+x=5 → x++=5 → x=6 → 5<=5 → print 6/2 = 3
+x=6 → 6<=5 → stop
+
+<span class="output">Output: 223</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 2 -->
+  <details>
+    <summary>Frage 2: <code>int x = 4, y = 5; for (int i = 0; i < 2; i++) { x += y-- / 2; } System.out.print(x + ":" + y);</code></summary>
+    <pre>
+i=0: y-- → nutzt 5 → y=4 → 5/2=2 → x=4+2=6
+i=1: y-- → nutzt 4 → y=3 → 4/2=2 → x=6+2=8
+
+<span class="output">Output: 8:3</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 3 -->
+  <details>
+    <summary>Frage 3: <code>int i = 0; while (i++ < 4) { if (i == 3) continue; System.out.print(i / 2); }</code></summary>
+    <pre>
+i++=0 → i=1 → 0<4 → i=1 → 1/2=0 → print 0
+i++=1 → i=2 → 1<4 → i=2 → 2/2=1 → print 1
+i++=2 → i=3 → 2<4 → i=3 → continue
+i++=3 → i=4 → 3<4 → i=4 → 4/2=2 → print 2
+i++=4 → i=5 → 4<4 → stop
+
+<span class="output">Output: 012</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 4 -->
+  <details>
+    <summary>Frage 4: <code>int x = 5; int y = (x++ / 2 >= 2) ? x-- : ++x; System.out.print(y);</code></summary>
+    <pre>
+x++ → nutzt 5 → x=6 → 5/2=2 → 2>=2 → wahr
+x-- → nutzt 6 → x=5 → y=6
+
+<span class="output">Output: 6</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 5 -->
+  <details>
+    <summary>Frage 5: <code>for (int i = 1; i <= 3; i++) { for (int j = 1; j <= i; j++) { if (j / 2 == 1) break; System.out.print(j); } System.out.println(); }</code></summary>
+    <pre>
+i=1: j=1 → 0≠1 → print 1 → \n
+i=2: j=1 → print 1; j=2 → 1==1 → break → \n
+i=3: j=1 → print 1; j=2 → break → \n
+
+<span class="output">Output:\n1\n1\n1</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 6 -->
+  <details>
+    <summary>Frage 6: <code>int x = 4; do { System.out.print(x / 2); x--; } while (x-- > 2);</code></summary>
+    <pre>
+x=4 → print 2 → x=3
+x--=3 → 3>2 → wahr → x=2
+x=2 → print 1 → x=1
+x--=1 → 1>2 → falsch → stop
+
+<span class="output">Output: 21</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 7 -->
+  <details>
+    <summary>Frage 7: <code>int sum = 0; for (int i = 1; i <= 5; i++) { if (i / 2 == 1) continue; sum += i; } System.out.print(sum);</code></summary>
+    <pre>
+i=1: 0≠1 → sum=1
+i=2: 1==1 → continue
+i=3: 1==1 → continue
+i=4: 2≠1 → sum=5
+i=5: 2≠1 → sum=10
+
+<span class="output">Output: 10</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 8 -->
+  <details>
+    <summary>Frage 8: <code>int x = 3, y = 4; if (x++ / 2 >= y--) { System.out.print("A"); } else { System.out.print("B"); } System.out.print(x + y);</code></summary>
+    <pre>
+x++ → 3 → x=4 → 3/2=1
+y-- → 4 → y=3
+1 >= 4 → falsch → B
+x+y = 4+3 = 7
+
+<span class="output">Output: B7</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 9 -->
+  <details>
+    <summary>Frage 9: <code>int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 4; j++) { if (j / 2 == 1) break; count++; } } System.out.print(count);</code></summary>
+    <pre>
+i=0: j=0→+1, j=1→+1 → count=2; j=2→break
+i=1: j=1→+1 → count=3; j=2→break
+i=2,3: j=2,3→break sofort
+
+<span class="output">Output: 3</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 10 -->
+  <details>
+    <summary>Frage 10: <code>int x = 6; while (x-- > 3) { System.out.print(x / 2); if (x == 4) break; }</code></summary>
+    <pre>
+x--=6 → x=5 → 6>3 → print 5/2=2
+x--=5 → x=4 → 5>3 → print 4/2=2 → x==4 → break
+
+<span class="output">Output: 22</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 11 -->
+  <details>
+    <summary>Frage 11: <code>int x = 3, y = 4; for (int i = 0; i < 3; i++) { x += y++ / 2; } System.out.print(x + ":" + y);</code></summary>
+    <pre>
+i=0: y++=4 → y=5 → 4/2=2 → x=5
+i=1: y++=5 → y=6 → 5/2=2 → x=7
+i=2: y++=6 → y=7 → 6/2=3 → x=10
+
+<span class="output">Output: 10:7</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 12 -->
+  <details>
+    <summary>Frage 12: <code>for (int i = 1; i <= 3; i++) { for (int j = 3; j >= i; j--) { System.out.print(j / 2); } System.out.println(); }</code></summary>
+    <pre>
+i=1: j=3→1, j=2→1 → 11\n
+i=2: j=3→1, j=2→1 → 11\n
+i=3: j=3→1 → 1\n
+
+<span class="output">Output:\n111\n11\n1</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 13 -->
+  <details>
+    <summary>Frage 13: <code>int x = 4; int y = (--x / 2 == 1) ? x++ : ++x; System.out.print(y);</code></summary>
+    <pre>
+--x → x=3 → 3/2=1 → wahr
+x++ → nutzt 3 → x=4 → y=3
+
+<span class="output">Output: 3</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 14 -->
+  <details>
+    <summary>Frage 14: <code>int i = 0; while (i++ < 5) { if (i / 2 == 2) continue; System.out.print(i); }</code></summary>
+    <pre>
+i++=0→1 → print 1
+i++=1→2 → print 2
+i++=2→3 → print 3
+i++=3→4 → 4/2=2 → continue
+i++=4→5 → print 5
+
+<span class="output">Output: 1235</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 15 -->
+  <details>
+    <summary>Frage 15: <code>int x = 5; do { System.out.print(x / 2); x--; } while (x > 2 && x / 2 == 1);</code></summary>
+    <pre>
+x=5 → print 2 → x=4
+4>2 && 4/2==1 → falsch → stop
+
+<span class="output">Output: 2</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 16 -->
+  <details>
+    <summary>Frage 16: <code>int sum = 0; for (int i = 1; i <= 4; i++) { for (int j = 1; j <= i; j++) { if (j / 2 == 1) sum += j; } } System.out.print(sum);</code></summary>
+    <pre>
+i=2: j=2 → +2
+i=3: j=2→+2, j=3→+3 → sum=7
+i=4: j=2→+2, j=3→+3 → sum=12
+
+<span class="output">Output: 12</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 17 -->
+  <details>
+    <summary>Frage 17: <code>int x = 3; if (x++ / 2 == 1 && ++x / 2 == 2) { System.out.print("A"); } else { System.out.print("B"); } System.out.print(x);</code></summary>
+    <pre>
+x++ → 3 → x=4 → 3/2=1 → wahr
+++x → x=5 → 5/2=2 → wahr → A
+print x=5
+
+<span class="output">Output: A5</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 18 -->
+  <details>
+    <summary>Frage 18: <code>int x = 6; for (int i = 1; i <= 3; i++) { x -= i / 2; } System.out.print(x);</code></summary>
+    <pre>
+i=1: 0 → x=6
+i=2: 1 → x=5
+i=3: 1 → x=4
+
+<span class="output">Output: 4</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 19 -->
+  <details>
+    <summary>Frage 19: <code>for (int i = 0; i < 3; i++) { for (int j = 0; j < 3; j++) { if (i + j / 2 == 2) break; System.out.print(j); } }</code></summary>
+    <pre>
+i=0: j=0,1,2 → 012
+i=1: j=0,1 → 01 (j=2: 1+1=2 → break)
+i=2: j=0 → 2+0=2 → break
+
+<span class="output">Output: 01201</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 20 -->
+  <details>
+    <summary>Frage 20: <code>int x = 4; while (--x > 1) { System.out.print(x / 2); if (x == 2) break; }</code></summary>
+    <pre>
+--x=3 → 3>1 → print 1
+--x=2 → 2>1 → print 1 → x==2 → break
+
+<span class="output">Output: 11</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 21 -->
+  <details>
+    <summary>Frage 21: <code>int x = 3, y = 4; for (int i = 0; i < 2; i++) { y += x++ / 2; } System.out.print(x + ":" + y);</code></summary>
+    <pre>
+i=0: x++=3 → x=4 → 3/2=1 → y=5
+i=1: x++=4 → x=5 → 4/2=2 → y=7
+
+<span class="output">Output: 5:7</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 22 -->
+  <details>
+    <summary>Frage 22: <code>for (int i = 1; i <= 3; i++) { for (int j = i; j >= 1; j--) { System.out.print(j / 2); } System.out.println(); }</code></summary>
+    <pre>
+i=1: j=1 → 0
+i=2: j=2→1, j=1→0 → 10
+i=3: j=3→1, j=2→1, j=1→0 → 110
+
+<span class="output">Output:\n0\n10\n110</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 23 -->
+  <details>
+    <summary>Frage 23: <code>int x = 5; int y = (x-- / 2 > 2) ? x++ : --x; System.out.print(y);</code></summary>
+    <pre>
+x-- → 5 → x=4 → 5/2=2 >2 → falsch
+--x → x=3 → y=3
+
+<span class="output">Output: 3</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 24 -->
+  <details>
+    <summary>Frage 24: <code>int i = 0; while (i++ < 4) { if (i / 2 == 1) continue; System.out.print(i); }</code></summary>
+    <pre>
+i++=0→1 → print 1
+i++=1→2 → 2/2=1 → continue
+i++=2→3 → print 3
+i++=3→4 → 4<4 → stop
+
+<span class="output">Output: 13</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 25 -->
+  <details>
+    <summary>Frage 25: <code>int x = 6; do { System.out.print(x / 2); x--; } while (x > 3 || x / 2 == 2);</code></summary>
+    <pre>
+x=6 → print 3 → x=5 → 5>3 → weiter
+x=5 → print 2 → x=4 → 4>3 → weiter
+x=4 → print 2 → x=3 → 3>3 || 1==2 → falsch
+
+<span class="output">Output: 322</span>
+<span class="index">Index: 1</span>
+    </pre>
+  </details>
+
+  <!-- Frage 26 -->
+  <details>
+    <summary>Frage 26: <code>int sum = 0; for (int i = 1; i <= 5; i++) { if (i / 2 == 2) sum += i; } System.out.print(sum);</code></summary>
+    <pre>
+i=4: 2==2 → +4
+i=5: 2==2 → +5 → sum=9
+
+<span class="output">Output: 9</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 27 -->
+  <details>
+    <summary>Frage 27: <code>int x = 2; if (++x / 2 == 1 || x++ / 2 == 1) { System.out.print("A"); } else { System.out.print("B"); } System.out.print(x);</code></summary>
+    <pre>
+++x → x=3 → 3/2=1 → wahr → Kurzschluss
+print A → x=3
+
+<span class="output">Output: A3</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <!-- Frage 28 -->
+  <details>
+    <summary>Frage 28: <code>int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j <= i; j++) { count += j / 2; } } System.out.print(count);</code></summary>
+    <pre>
+i=0: j=0 → +0
+i=1: j=0,1 → +0+0
+i=2: j=0,1,2 → +0+0+1 → count=1
+
+<span class="output">Output: 1</span>
+<span class="index">Index: 2</span>
+    </pre>
+  </details>
+
+  <!-- Frage 29 -->
+  <details>
+    <summary>Frage 29: <code>int x = 2, y = 5; for (int i = 0; i < 2; i++) { x += ++y / 2; } System.out.print(x + ":" + y);</code></summary>
+    <pre>
+i=0: ++y → y=6 → 6/2=3 → x=5
+i=1: ++y → y=7 → 7/2=3 → x=8
+
+<span class="output">Output: 8:7</span>
+<span class="index">Index: 3</span>
+    </pre>
+  </details>
+
+  <!-- Frage 30 -->
+  <details>
+    <summary>Frage 30: <code>int x = 5; int y = (--x / 2 == 2) ? x++ : ++x; System.out.print(y);</code></summary>
+    <pre>
+--x → x=4 → 4/2=2 → wahr
+x++ → nutzt 4 → x=5 → y=4
+
+<span class="output">Output: 4</span>
+<span class="index">Index: 0</span>
+    </pre>
+  </details>
+
+  <hr>
+  <p><strong>Lern-Tipp:</strong> Suche mit <kbd>Strg + F</kbd> nach <code>i++</code>, <code>break</code>, <code>continue</code>, <code>x--</code>!</p>
+</body>
+</html>
